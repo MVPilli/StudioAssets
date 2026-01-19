@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Affinity Designer Annual Report Template | Professional White Papers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --brand-bg: #0e0e0e;
+        --brand-accent: #f2f2f2;
+      }
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        background-color: var(--brand-bg);
+        color: var(--brand-accent);
+        -webkit-font-smoothing: antialiased;
+        letter-spacing: -0.01em;
+      }
+      .norgram-border {
+        border-color: rgba(255, 255, 255, 0.08);
+      }
+      .text-norgram-muted {
+        color: #8c8c8c;
+      }
+      /* Brutalist hover effect */
+      .btn-norgram {
+        transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1), background-color 0.2s ease;
+      }
+      .btn-norgram:hover {
+        transform: translateY(-1px);
+      }
+      .btn-norgram:active {
+        transform: translateY(0);
+      }
+      .aspect-norgram {
+        aspect-ratio: 16 / 10;
+      }
+      @keyframes reveal {
+        from { clip-path: inset(100% 0 0 0); }
+        to { clip-path: inset(0 0 0 0); }
+      }
+      .animate-reveal {
+        animation: reveal 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
+  }
+}
+</script>
+</head>
+  <body class="bg-[#0e0e0e] text-[#f2f2f2] selection:bg-[#f2f2f2] selection:text-black">
+    <div id="root"></div>
+  </body>
+</html>
