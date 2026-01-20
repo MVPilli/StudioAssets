@@ -30,7 +30,6 @@
         .animate-reveal {
             animation: reveal 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
         }
-        /* Removed filter classes that were forcing the logo to black or incorrect tones */
         ::-webkit-scrollbar {
             width: 6px;
         }
@@ -41,6 +40,11 @@
             background: #333;
             border-radius: 10px;
         }
+        /* Ensure logos are not hidden if background is too dark */
+        .logo-container img {
+            display: block;
+            max-width: 100%;
+        }
     </style>
 </head>
 <body class="bg-[#0e0e0e] text-[#f2f2f2] selection:bg-[#f2f2f2] selection:text-black min-h-screen flex flex-col antialiased">
@@ -48,8 +52,9 @@
     <header class="fixed top-0 left-0 w-full z-[100] px-4 md:px-6 py-4 md:py-6 border-b border-white/10 bg-[#0e0e0e]/90 backdrop-blur-md">
         <div class="max-w-[1800px] mx-auto flex justify-between items-center">
             <div class="flex items-center space-x-4 md:space-x-8">
-                <!-- Removed .logo-img filter class -->
-                <img src="images/STUDIOASSETS_LOGO_1.png" alt="Studio Assets Logo" class="h-6 md:h-8 w-auto object-contain">
+                <div class="logo-container">
+                    <img src="images/STUDIOASSETS_LOGO_1.png" alt="Studio Assets Logo" class="h-6 md:h-8 w-auto object-contain">
+                </div>
                 <span class="hidden sm:block text-[9px] md:text-[10px] uppercase tracking-widest text-[#8c8c8c] font-medium border-l border-white/10 pl-4 md:pl-8">
                     A4 Annual Report / V1.0
                 </span>
@@ -159,13 +164,14 @@
 
         <section class="px-4 md:px-6 py-24 md:py-48 bg-[#f2f2f2] text-black overflow-hidden">
             <div class="max-w-[1800px] mx-auto">
-                <!-- Removed .logo-dark filter class -->
-                <div class="mb-12"><img src="images/STUDIOASSETS_LOGO_1.png" alt="Studio Assets Logo" class="h-10"></div>
+                <div class="mb-12">
+                    <img src="images/STUDIOASSETS_LOGO_1.png" alt="Studio Assets Logo" class="h-10 object-contain brightness-0">
+                </div>
                 <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-10">
                     <h2 class="text-[10vw] sm:text-[8vw] lg:text-[7vw] xl:text-[6.5vw] leading-[0.85] font-black tracking-[-0.05em] uppercase w-full max-w-[90vw]">
                         READY TO <br>UPGRADE YOUR <br>AFFINITY?
                     </h2>
-                    <button id="scroll-to-top" class="flex items-center space-x-4 bg-black text-[#f2f2f2] px-8 py-5 rounded-full group transition-all shadow-xl shrink-0">
+                    <button id="scroll-to-top-cta" class="flex items-center space-x-4 bg-black text-[#f2f2f2] px-8 py-5 rounded-full group transition-all shadow-xl shrink-0">
                         <span class="text-base font-bold uppercase whitespace-nowrap">Access Template</span>
                         <i data-lucide="arrow-up-right" class="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
                     </button>
@@ -174,10 +180,14 @@
         </section>
     </main>
 
-    <footer class="px-4 md:px-6 py-8 border-t border-white/10 bg-[#0e0e0e]">
+    <footer class="px-4 md:px-6 py-12 border-t border-white/10 bg-[#0e0e0e]">
         <div class="max-w-[1800px] mx-auto">
-            <!-- Removed .logo-img filter class, lowered opacity for subtle branding -->
-            <img src="images/STUDIOASSETS_LOGO_1.png" alt="Studio Assets Logo" class="h-6 opacity-40">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+                <img src="images/STUDIOASSETS_LOGO_1.png" alt="Studio Assets Logo" class="h-6 opacity-60 object-contain">
+                <div class="text-[10px] uppercase tracking-[0.2em] text-[#8c8c8c]">
+                    © Studio Assets. All rights reserved.
+                </div>
+            </div>
         </div>
     </footer>
 
@@ -201,13 +211,15 @@
             }, 1000);
         });
 
-        document.getElementById('scroll-to-top').addEventListener('click', () => {
+        const handleScrollToTop = () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
             setTimeout(() => {
                 const input = document.querySelector('#lead-form input');
                 if (input) input.focus();
             }, 800);
-        });
+        };
+
+        document.getElementById('scroll-to-top-cta')?.addEventListener('click', handleScrollToTop);
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('animate-reveal'); });
