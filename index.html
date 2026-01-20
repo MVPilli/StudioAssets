@@ -16,25 +16,16 @@
             --brand-accent: #f2f2f2;
         }
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: var(--brand-bg);
             color: var(--brand-accent);
             -webkit-font-smoothing: antialiased;
             letter-spacing: -0.01em;
             overflow-x: hidden;
         }
-        .norgram-border {
-            border-color: rgba(255, 255, 255, 0.08);
-        }
-        .text-norgram-muted {
-            color: #8c8c8c;
-        }
-        .aspect-norgram {
-            aspect-ratio: 16 / 10;
-        }
         @keyframes reveal {
-            from { clip-path: inset(100% 0 0 0); }
-            to { clip-path: inset(0 0 0 0); }
+            from { clip-path: inset(100% 0 0 0); transform: translateY(20px); }
+            to { clip-path: inset(0 0 0 0); transform: translateY(0); }
         }
         .animate-reveal {
             animation: reveal 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
@@ -45,7 +36,6 @@
         .logo-dark {
             filter: grayscale(1) invert(0) brightness(0);
         }
-        /* Custom scrollbar for premium feel */
         ::-webkit-scrollbar {
             width: 6px;
         }
@@ -56,14 +46,10 @@
             background: #333;
             border-radius: 10px;
         }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #444;
-        }
     </style>
 </head>
 <body class="bg-[#0e0e0e] text-[#f2f2f2] selection:bg-[#f2f2f2] selection:text-black min-h-screen flex flex-col antialiased">
 
-    <!-- Structural Top Nav -->
     <header class="fixed top-0 left-0 w-full z-[100] px-4 md:px-6 py-4 md:py-6 border-b border-white/10 bg-[#0e0e0e]/90 backdrop-blur-md">
         <div class="max-w-[1800px] mx-auto flex justify-between items-center">
             <div class="flex items-center space-x-4 md:space-x-8">
@@ -72,14 +58,11 @@
                     A4 Annual Report / V1.0
                 </span>
             </div>
-            <div id="current-time" class="text-xs md:text-sm font-medium tracking-tighter text-[#f2f2f2]">
-                --:-- — GMT
-            </div>
+            <div id="current-time" class="text-xs md:text-sm font-medium tracking-tighter text-[#f2f2f2]">--:-- — GMT</div>
         </div>
     </header>
 
     <main class="flex-grow pt-24 md:pt-32">
-        <!-- Hero Section -->
         <section class="px-4 md:px-6 border-b border-white/5 pb-16 md:pb-24">
             <div class="max-w-[1800px] mx-auto">
                 <div class="mb-8 md:mb-12 flex justify-between items-start">
@@ -98,12 +81,9 @@
                             Professional 24-page brochure template for Affinity Designer. Optimized for corporate transparency and minimal aesthetics.
                         </p>
                         <div class="flex flex-wrap gap-x-4 gap-y-2 text-[9px] md:text-[10px] uppercase tracking-widest text-[#8c8c8c]">
-                            <span>24 Pages</span>
-                            <span class="opacity-30">/</span>
-                            <span>A4 Portrait</span>
-                            <span class="opacity-30">/</span>
-                            <span>300 DPI CMYK</span>
-                            <span class="opacity-30">/</span>
+                            <span>24 Pages</span><span class="opacity-30">/</span>
+                            <span>A4 Portrait</span><span class="opacity-30">/</span>
+                            <span>300 DPI CMYK</span><span class="opacity-30">/</span>
                             <span>Print Ready</span>
                         </div>
                     </div>
@@ -113,23 +93,14 @@
                             <div class="space-y-4">
                                 <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-white/40">Enter Email for the Template</span>
                                 <form id="lead-form" class="relative border-b border-white/20 pb-4 flex items-center group">
-                                    <input 
-                                        type="email" 
-                                        required
-                                        placeholder="your@email.com" 
-                                        class="flex-grow bg-transparent text-2xl sm:text-3xl md:text-5xl font-medium tracking-tighter outline-none placeholder:text-white/10 w-full"
-                                    />
-                                    <button 
-                                        type="submit"
-                                        class="ml-4 p-3 md:p-4 bg-white text-black rounded-full hover:scale-110 transition-transform shrink-0"
-                                        title="Submit"
-                                    >
+                                    <input type="email" required placeholder="your@email.com" class="flex-grow bg-transparent text-2xl sm:text-3xl md:text-5xl font-medium tracking-tighter outline-none placeholder:text-white/10 w-full" />
+                                    <button type="submit" class="ml-4 p-3 md:p-4 bg-white text-black rounded-full hover:scale-110 transition-transform shrink-0">
                                         <i data-lucide="arrow-right" class="w-6 h-6 md:w-10 md:h-10"></i>
                                     </button>
                                 </form>
                             </div>
                         </div>
-                        <div id="success-message" class="hidden min-h-[60px] md:h-[100px] flex items-center">
+                        <div id="success-message" class="hidden min-h-[60px] md:h-[100px] items-center">
                             <span class="text-xl md:text-3xl font-medium tracking-tighter text-white uppercase italic">Registration Complete. Check your inbox.</span>
                         </div>
                     </div>
@@ -137,219 +108,103 @@
             </div>
         </section>
 
-        <!-- Imagery Section -->
         <section class="px-4 md:px-6 py-16 md:py-24 border-b border-white/5 overflow-hidden">
             <div class="max-w-[1800px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-px md:bg-white/5">
-                <!-- Cover System -->
                 <div class="bg-[#0e0e0e] md:pr-12 pb-4 md:pb-12">
-                    <div class="aspect-[4/5] md:aspect-norgram overflow-hidden bg-[#1a1a1a]">
-                        <img 
-                            src="https://raw.githubusercontent.com/ben-itp/assets/main/screenshot_1740669223789.png" 
-                            class="w-full h-full object-cover grayscale opacity-80 hover:opacity-100 transition-all duration-700 hover:scale-105" 
-                            alt="Cover System Preview" 
-                        />
+                    <div class="aspect-[4/5] overflow-hidden bg-[#1a1a1a]">
+                        <img src="https://raw.githubusercontent.com/ben-itp/assets/main/screenshot_1740669223789.png" class="w-full h-full object-cover grayscale opacity-80 hover:opacity-100 transition-all duration-700 hover:scale-105" alt="Preview 1">
                     </div>
-                    <div class="mt-6 flex justify-between items-baseline">
-                        <span class="text-sm font-semibold uppercase italic">Cover System</span>
-                        <span class="text-[9px] text-[#8c8c8c] uppercase tracking-widest">Type-Focused</span>
-                    </div>
+                    <div class="mt-6 flex justify-between items-baseline"><span class="text-sm font-semibold uppercase italic">Cover System</span><span class="text-[9px] text-[#8c8c8c] uppercase tracking-widest">Type-Focused</span></div>
                 </div>
-                <!-- Grid Logic -->
                 <div class="bg-[#0e0e0e] md:px-12 pb-4 md:pb-12">
-                    <div class="aspect-[4/5] md:aspect-norgram overflow-hidden bg-[#1a1a1a]">
-                        <img 
-                            src="https://raw.githubusercontent.com/ben-itp/assets/main/screenshot_1740669234857.png" 
-                            class="w-full h-full object-cover grayscale opacity-80 hover:opacity-100 transition-all duration-700 hover:scale-105" 
-                            alt="Grid Logic Preview" 
-                        />
+                    <div class="aspect-[4/5] overflow-hidden bg-[#1a1a1a]">
+                        <img src="https://raw.githubusercontent.com/ben-itp/assets/main/screenshot_1740669234857.png" class="w-full h-full object-cover grayscale opacity-80 hover:opacity-100 transition-all duration-700 hover:scale-105" alt="Preview 2">
                     </div>
-                    <div class="mt-6 flex justify-between items-baseline">
-                        <span class="text-sm font-semibold uppercase italic">Grid Logic</span>
-                        <span class="text-[9px] text-[#8c8c8c] uppercase tracking-widest">A4 Structure</span>
-                    </div>
+                    <div class="mt-6 flex justify-between items-baseline"><span class="text-sm font-semibold uppercase italic">Grid Logic</span><span class="text-[9px] text-[#8c8c8c] uppercase tracking-widest">A4 Structure</span></div>
                 </div>
-                <!-- Minimalist Forms -->
                 <div class="bg-[#0e0e0e] md:pl-12 pb-4 md:pb-12">
-                    <div class="aspect-[4/5] md:aspect-norgram overflow-hidden bg-[#1a1a1a]">
-                        <img 
-                            src="https://raw.githubusercontent.com/ben-itp/assets/main/screenshot_1740669228966.png" 
-                            class="w-full h-full object-cover grayscale opacity-80 hover:opacity-100 transition-all duration-700 hover:scale-105" 
-                            alt="Minimalist Forms Preview" 
-                        />
+                    <div class="aspect-[4/5] overflow-hidden bg-[#1a1a1a]">
+                        <img src="https://raw.githubusercontent.com/ben-itp/assets/main/screenshot_1740669228966.png" class="w-full h-full object-cover grayscale opacity-80 hover:opacity-100 transition-all duration-700 hover:scale-105" alt="Preview 3">
                     </div>
-                    <div class="mt-6 flex justify-between items-baseline">
-                        <span class="text-sm font-semibold uppercase italic">Minimalist Forms</span>
-                        <span class="text-[9px] text-[#8c8c8c] uppercase tracking-widest">Data Visualization</span>
-                    </div>
+                    <div class="mt-6 flex justify-between items-baseline"><span class="text-sm font-semibold uppercase italic">Minimalist Forms</span><span class="text-[9px] text-[#8c8c8c] uppercase tracking-widest">Data Viz</span></div>
                 </div>
             </div>
         </section>
 
-        <!-- Specifications Section -->
         <section class="px-4 md:px-6 py-20 md:py-32">
             <div class="max-w-[1800px] mx-auto grid lg:grid-cols-12 gap-12">
                 <div class="lg:col-span-4">
-                    <h2 class="text-sm font-bold uppercase tracking-tighter mb-8 md:mb-12">Specifications</h2>
-                    <div class="md:sticky md:top-32 text-[9px] md:text-[10px] uppercase tracking-widest text-[#8c8c8c] space-y-2">
-                        <p>File type: .afdesign</p>
-                        <p>Version: V2.0+</p>
-                        <p>Size: 32MB Compressed</p>
+                    <h2 class="text-sm font-bold uppercase tracking-tighter mb-8">Specifications</h2>
+                    <div class="md:sticky md:top-32 text-[9px] uppercase tracking-widest text-[#8c8c8c] space-y-2">
+                        <p>File: .afdesign</p><p>Version: V2.0+</p><p>Size: 32MB</p>
                     </div>
                 </div>
                 <div class="lg:col-span-8 divide-y divide-white/5">
-                    <!-- Feature Row 1 -->
-                    <div class="py-10 md:py-12 grid md:grid-cols-2 gap-6 md:gap-8 group cursor-default">
-                        <div class="flex items-center space-x-4 md:space-x-6">
+                    <div class="py-10 grid md:grid-cols-2 gap-6 group">
+                        <div class="flex items-center space-x-4">
                             <i data-lucide="monitor" class="w-5 h-5 text-white/20 group-hover:text-white transition-colors"></i>
-                            <h3 class="text-xl md:text-2xl font-medium tracking-tight uppercase">Non-Destructive Editing</h3>
+                            <h3 class="text-xl font-medium uppercase">Non-Destructive</h3>
                         </div>
-                        <p class="text-[#8c8c8c] text-sm leading-relaxed max-w-sm">
-                            Every layer is named and organized. Utilizing Affinity's native Symbols for footer and header management.
-                        </p>
+                        <p class="text-[#8c8c8c] text-sm">Organized layers and Symbols for efficient global management.</p>
                     </div>
-                    <!-- Feature Row 2 -->
-                    <div class="py-10 md:py-12 grid md:grid-cols-2 gap-6 md:gap-8 group cursor-default">
-                        <div class="flex items-center space-x-4 md:space-x-6">
+                    <div class="py-10 grid md:grid-cols-2 gap-6 group">
+                        <div class="flex items-center space-x-4">
                             <i data-lucide="printer" class="w-5 h-5 text-white/20 group-hover:text-white transition-colors"></i>
-                            <h3 class="text-xl md:text-2xl font-medium tracking-tight uppercase">Print Optimization</h3>
+                            <h3 class="text-xl font-medium uppercase">Print Ready</h3>
                         </div>
-                        <p class="text-[#8c8c8c] text-sm leading-relaxed max-w-sm">
-                            Pre-defined 3mm bleed, CMYK color space, and baseline grid alignment for professional print results.
-                        </p>
-                    </div>
-                    <!-- Feature Row 3 -->
-                    <div class="py-10 md:py-12 grid md:grid-cols-2 gap-6 md:gap-8 group cursor-default">
-                        <div class="flex items-center space-x-4 md:space-x-6">
-                            <i data-lucide="plus" class="w-5 h-5 text-white/20 group-hover:text-white transition-colors"></i>
-                            <h3 class="text-xl md:text-2xl font-medium tracking-tight uppercase">24 Unique Pages</h3>
-                        </div>
-                        <p class="text-[#8c8c8c] text-sm leading-relaxed max-w-sm">
-                            From executive summaries to financial tables. A complete toolkit for corporate storytelling.
-                        </p>
-                    </div>
-                    <!-- Feature Row 4 -->
-                    <div class="py-10 md:py-12 grid md:grid-cols-2 gap-6 md:gap-8 group cursor-default">
-                        <div class="flex items-center space-x-4 md:space-x-6">
-                            <i data-lucide="compass" class="w-5 h-5 text-white/20 group-hover:text-white transition-colors"></i>
-                            <h3 class="text-xl md:text-2xl font-medium tracking-tight uppercase">Modern Typography</h3>
-                        </div>
-                        <p class="text-[#8c8c8c] text-sm leading-relaxed max-w-sm">
-                            Calculated font scaling and leading to ensure maximum readability in high-stakes documents.
-                        </p>
+                        <p class="text-[#8c8c8c] text-sm">3mm bleed, CMYK, and baseline grid alignment included.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Bottom CTA -->
         <section class="px-4 md:px-6 py-24 md:py-48 bg-[#f2f2f2] text-black">
             <div class="max-w-[1800px] mx-auto">
-                <div class="mb-12 md:mb-20">
-                    <img src="https://raw.githubusercontent.com/ben-itp/assets/main/logo-white.png" alt="Logo" class="h-5 md:h-6 w-auto logo-dark">
-                </div>
+                <div class="mb-12"><img src="https://raw.githubusercontent.com/ben-itp/assets/main/logo-white.png" alt="Logo" class="h-5 logo-dark"></div>
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-end">
-                    <h2 class="text-[12vw] md:text-[9vw] leading-[0.9] md:leading-[0.85] font-bold tracking-tighter uppercase max-w-4xl">
-                        Ready to <br />
-                        <span class="italic">Transform.</span>
-                    </h2>
-                    <div class="mt-10 md:mt-0 flex flex-col items-start md:items-end space-y-6 w-full md:w-auto">
-                        <p class="text-left md:text-right text-xs md:text-sm font-medium uppercase tracking-tight max-w-xs">
-                            Join the exclusive list to receive the A4 Annual Report template directly in your inbox.
-                        </p>
-                        <button 
-                            id="scroll-to-top"
-                            class="flex items-center justify-between md:justify-start space-x-4 bg-black text-[#f2f2f2] px-8 md:px-12 py-5 md:py-6 rounded-full group transition-all shadow-xl w-full md:w-auto"
-                        >
-                            <span class="text-base md:text-lg font-bold uppercase tracking-tight">Access Template</span>
-                            <i data-lucide="arrow-up-right" class="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
-                        </button>
-                    </div>
+                    <h2 class="text-[12vw] md:text-[9vw] leading-[0.85] font-bold tracking-tighter uppercase max-w-4xl">Ready to <br><span class="italic">Transform.</span></h2>
+                    <button id="scroll-to-top" class="mt-10 md:mt-0 flex items-center space-x-4 bg-black text-[#f2f2f2] px-8 py-5 rounded-full group transition-all shadow-xl">
+                        <span class="text-base font-bold uppercase">Access Template</span>
+                        <i data-lucide="arrow-up-right" class="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+                    </button>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="px-4 md:px-6 py-8 md:py-12 border-t border-white/10 bg-[#0e0e0e]">
-        <div class="max-w-[1800px] mx-auto flex justify-start items-center">
-            <img src="https://raw.githubusercontent.com/ben-itp/assets/main/logo-white.png" alt="Logo" class="h-3.5 md:h-4 w-auto opacity-30 logo-img grayscale">
-        </div>
+    <footer class="px-4 md:px-6 py-8 border-t border-white/10 bg-[#0e0e0e]">
+        <div class="max-w-[1800px] mx-auto"><img src="https://raw.githubusercontent.com/ben-itp/assets/main/logo-white.png" alt="Logo" class="h-3.5 opacity-30 logo-img"></div>
     </footer>
 
     <script>
-        // Initialize Lucide Icons
         lucide.createIcons();
-
-        // Update Time Logic
         function updateTime() {
             const now = new Date();
             const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            const timeElement = document.getElementById('current-time');
-            if (timeElement) {
-                timeElement.innerText = `${timeStr} — GMT`;
-            }
+            document.getElementById('current-time').innerText = `${timeStr} — GMT`;
         }
-        setInterval(updateTime, 1000);
-        updateTime();
+        setInterval(updateTime, 1000); updateTime();
 
-        // Form Submission Logic
-        const form = document.getElementById('lead-form');
-        const formContainer = document.getElementById('form-container');
-        const successMessage = document.getElementById('success-message');
+        document.getElementById('lead-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            btn.disabled = true; btn.innerHTML = '<div class="w-6 h-6 border-2 border-black border-t-transparent rounded-full animate-spin"></div>';
+            setTimeout(() => {
+                document.getElementById('form-container').classList.add('hidden');
+                document.getElementById('success-message').classList.remove('hidden');
+                document.getElementById('success-message').classList.add('flex');
+            }, 1000);
+        });
 
-        if (form) {
-            form.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const button = form.querySelector('button');
-                const input = form.querySelector('input');
-                
-                // Visual state: Submitting
-                if (button) {
-                    button.disabled = true;
-                    button.innerHTML = '<div class="w-6 h-6 md:w-10 md:h-10 border-2 border-black border-t-transparent rounded-full animate-spin"></div>';
-                }
-                
-                // Simulate Network Lead Capture
-                setTimeout(() => {
-                    if (formContainer && successMessage) {
-                        formContainer.classList.add('hidden');
-                        successMessage.classList.remove('hidden');
-                        successMessage.classList.add('flex'); // Ensure flex display for alignment
-                    }
-                }, 1200);
-            });
-        }
-
-        // CTA Scroll Interaction
-        const scrollBtn = document.getElementById('scroll-to-top');
-        if (scrollBtn) {
-            scrollBtn.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                // Optional: focus the email input after scrolling up
-                const emailInput = document.querySelector('#lead-form input');
-                if (emailInput) setTimeout(() => emailInput.focus(), 800);
-            });
-        }
-
-        // Handle Reveal Animations on Scroll
-        const observerOptions = {
-            threshold: 0.1
-        };
+        document.getElementById('scroll-to-top').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            setTimeout(() => document.querySelector('#lead-form input').focus(), 800);
+        });
 
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-reveal');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('h1, h2, .aspect-[4/5]').forEach(el => {
-            // Re-applying reveal to visible elements or those scrolling into view
-            // h1 already has animate-reveal class for initial load
-            if (!el.classList.contains('animate-reveal')) {
-                observer.observe(el);
-            }
-        });
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('animate-reveal'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('h1, h2, img').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
