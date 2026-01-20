@@ -7,7 +7,7 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Lucide Icons CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -158,13 +158,15 @@
             </div>
         </section>
 
-        <section class="px-4 md:px-6 py-24 md:py-48 bg-[#f2f2f2] text-black">
+        <section class="px-4 md:px-6 py-24 md:py-48 bg-[#f2f2f2] text-black overflow-hidden">
             <div class="max-w-[1800px] mx-auto">
                 <div class="mb-12"><img src="https://raw.githubusercontent.com/ben-itp/assets/main/logo-white.png" alt="Logo" class="h-5 logo-dark"></div>
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-end">
-                    <h2 class="text-[12vw] md:text-[9vw] leading-[0.85] font-bold tracking-tighter uppercase max-w-4xl">Ready to <br><span class="italic">Transform.</span></h2>
-                    <button id="scroll-to-top" class="mt-10 md:mt-0 flex items-center space-x-4 bg-black text-[#f2f2f2] px-8 py-5 rounded-full group transition-all shadow-xl">
-                        <span class="text-base font-bold uppercase">Access Template</span>
+                <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-10">
+                    <h2 class="text-[10vw] sm:text-[8vw] lg:text-[7vw] xl:text-[6.5vw] leading-[0.85] font-black tracking-[-0.05em] uppercase w-full max-w-[90vw]">
+                        READY TO <br>UPGRADE YOUR <br>AFFINITY?
+                    </h2>
+                    <button id="scroll-to-top" class="flex items-center space-x-4 bg-black text-[#f2f2f2] px-8 py-5 rounded-full group transition-all shadow-xl shrink-0">
+                        <span class="text-base font-bold uppercase whitespace-nowrap">Access Template</span>
                         <i data-lucide="arrow-up-right" class="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
                     </button>
                 </div>
@@ -198,7 +200,10 @@
 
         document.getElementById('scroll-to-top').addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
-            setTimeout(() => document.querySelector('#lead-form input').focus(), 800);
+            setTimeout(() => {
+                const input = document.querySelector('#lead-form input');
+                if (input) input.focus();
+            }, 800);
         });
 
         const observer = new IntersectionObserver((entries) => {
