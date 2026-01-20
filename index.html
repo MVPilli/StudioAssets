@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,6 +44,20 @@
         }
         .logo-dark {
             filter: grayscale(1) invert(0) brightness(0);
+        }
+        /* Custom scrollbar for premium feel */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0e0e0e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #444;
         }
     </style>
 </head>
@@ -127,12 +140,13 @@
         <!-- Imagery Section -->
         <section class="px-4 md:px-6 py-16 md:py-24 border-b border-white/5 overflow-hidden">
             <div class="max-w-[1800px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-px md:bg-white/5">
+                <!-- Cover System -->
                 <div class="bg-[#0e0e0e] md:pr-12 pb-4 md:pb-12">
                     <div class="aspect-[4/5] md:aspect-norgram overflow-hidden bg-[#1a1a1a]">
                         <img 
-                            src="https://public-files.gumroad.com/83p1p66v75g7p4f8373on2u00f5k" 
+                            src="https://raw.githubusercontent.com/ben-itp/assets/main/screenshot_1740669223789.png" 
                             class="w-full h-full object-cover grayscale opacity-80 hover:opacity-100 transition-all duration-700 hover:scale-105" 
-                            alt="Template Detail" 
+                            alt="Cover System Preview" 
                         />
                     </div>
                     <div class="mt-6 flex justify-between items-baseline">
@@ -140,12 +154,13 @@
                         <span class="text-[9px] text-[#8c8c8c] uppercase tracking-widest">Type-Focused</span>
                     </div>
                 </div>
+                <!-- Grid Logic -->
                 <div class="bg-[#0e0e0e] md:px-12 pb-4 md:pb-12">
                     <div class="aspect-[4/5] md:aspect-norgram overflow-hidden bg-[#1a1a1a]">
                         <img 
-                            src="https://public-files.gumroad.com/s4f0u7f340n0w7b1m3a7776f8n7b" 
+                            src="https://raw.githubusercontent.com/ben-itp/assets/main/screenshot_1740669234857.png" 
                             class="w-full h-full object-cover grayscale opacity-80 hover:opacity-100 transition-all duration-700 hover:scale-105" 
-                            alt="Interior Layout" 
+                            alt="Grid Logic Preview" 
                         />
                     </div>
                     <div class="mt-6 flex justify-between items-baseline">
@@ -153,12 +168,13 @@
                         <span class="text-[9px] text-[#8c8c8c] uppercase tracking-widest">A4 Structure</span>
                     </div>
                 </div>
+                <!-- Minimalist Forms -->
                 <div class="bg-[#0e0e0e] md:pl-12 pb-4 md:pb-12">
                     <div class="aspect-[4/5] md:aspect-norgram overflow-hidden bg-[#1a1a1a]">
                         <img 
-                            src="https://public-files.gumroad.com/variants/l0q72w2o7z19965y8f16l0w2b4v5/308f2389a9f23758b9f05a96495b46e336d39103e5c94c92a5d2438b4c062c3f" 
+                            src="https://raw.githubusercontent.com/ben-itp/assets/main/screenshot_1740669228966.png" 
                             class="w-full h-full object-cover grayscale opacity-80 hover:opacity-100 transition-all duration-700 hover:scale-105" 
-                            alt="Spread" 
+                            alt="Minimalist Forms Preview" 
                         />
                     </div>
                     <div class="mt-6 flex justify-between items-baseline">
@@ -181,7 +197,7 @@
                     </div>
                 </div>
                 <div class="lg:col-span-8 divide-y divide-white/5">
-                    <!-- Tech Rows -->
+                    <!-- Feature Row 1 -->
                     <div class="py-10 md:py-12 grid md:grid-cols-2 gap-6 md:gap-8 group cursor-default">
                         <div class="flex items-center space-x-4 md:space-x-6">
                             <i data-lucide="monitor" class="w-5 h-5 text-white/20 group-hover:text-white transition-colors"></i>
@@ -191,6 +207,7 @@
                             Every layer is named and organized. Utilizing Affinity's native Symbols for footer and header management.
                         </p>
                     </div>
+                    <!-- Feature Row 2 -->
                     <div class="py-10 md:py-12 grid md:grid-cols-2 gap-6 md:gap-8 group cursor-default">
                         <div class="flex items-center space-x-4 md:space-x-6">
                             <i data-lucide="printer" class="w-5 h-5 text-white/20 group-hover:text-white transition-colors"></i>
@@ -200,6 +217,7 @@
                             Pre-defined 3mm bleed, CMYK color space, and baseline grid alignment for professional print results.
                         </p>
                     </div>
+                    <!-- Feature Row 3 -->
                     <div class="py-10 md:py-12 grid md:grid-cols-2 gap-6 md:gap-8 group cursor-default">
                         <div class="flex items-center space-x-4 md:space-x-6">
                             <i data-lucide="plus" class="w-5 h-5 text-white/20 group-hover:text-white transition-colors"></i>
@@ -209,6 +227,7 @@
                             From executive summaries to financial tables. A complete toolkit for corporate storytelling.
                         </p>
                     </div>
+                    <!-- Feature Row 4 -->
                     <div class="py-10 md:py-12 grid md:grid-cols-2 gap-6 md:gap-8 group cursor-default">
                         <div class="flex items-center space-x-4 md:space-x-6">
                             <i data-lucide="compass" class="w-5 h-5 text-white/20 group-hover:text-white transition-colors"></i>
@@ -260,11 +279,14 @@
         // Initialize Lucide Icons
         lucide.createIcons();
 
-        // Update Time
+        // Update Time Logic
         function updateTime() {
             const now = new Date();
             const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            document.getElementById('current-time').innerText = `${timeStr} — GMT`;
+            const timeElement = document.getElementById('current-time');
+            if (timeElement) {
+                timeElement.innerText = `${timeStr} — GMT`;
+            }
         }
         setInterval(updateTime, 1000);
         updateTime();
@@ -274,25 +296,59 @@
         const formContainer = document.getElementById('form-container');
         const successMessage = document.getElementById('success-message');
 
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const button = form.querySelector('button');
-            const input = form.querySelector('input');
-            
-            // Visual state: Loading
-            button.disabled = true;
-            button.style.opacity = '0.5';
-            
-            // Simulate API Call
-            setTimeout(() => {
-                formContainer.classList.add('hidden');
-                successMessage.classList.remove('hidden');
-            }, 1000);
-        });
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const button = form.querySelector('button');
+                const input = form.querySelector('input');
+                
+                // Visual state: Submitting
+                if (button) {
+                    button.disabled = true;
+                    button.innerHTML = '<div class="w-6 h-6 md:w-10 md:h-10 border-2 border-black border-t-transparent rounded-full animate-spin"></div>';
+                }
+                
+                // Simulate Network Lead Capture
+                setTimeout(() => {
+                    if (formContainer && successMessage) {
+                        formContainer.classList.add('hidden');
+                        successMessage.classList.remove('hidden');
+                        successMessage.classList.add('flex'); // Ensure flex display for alignment
+                    }
+                }, 1200);
+            });
+        }
 
         // CTA Scroll Interaction
-        document.getElementById('scroll-to-top').addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        const scrollBtn = document.getElementById('scroll-to-top');
+        if (scrollBtn) {
+            scrollBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                // Optional: focus the email input after scrolling up
+                const emailInput = document.querySelector('#lead-form input');
+                if (emailInput) setTimeout(() => emailInput.focus(), 800);
+            });
+        }
+
+        // Handle Reveal Animations on Scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-reveal');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('h1, h2, .aspect-[4/5]').forEach(el => {
+            // Re-applying reveal to visible elements or those scrolling into view
+            // h1 already has animate-reveal class for initial load
+            if (!el.classList.contains('animate-reveal')) {
+                observer.observe(el);
+            }
         });
     </script>
 </body>
